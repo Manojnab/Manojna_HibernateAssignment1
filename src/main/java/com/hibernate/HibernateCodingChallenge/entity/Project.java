@@ -12,15 +12,15 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="project")
+@Table(name = "project")
 public class Project {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
-	
-	@ManyToMany(mappedBy = "projects",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+
+	@ManyToMany(mappedBy = "projects", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Employee> employees;
 
 	public int getId() {
@@ -49,7 +49,8 @@ public class Project {
 
 	public Project(String name) {
 		super();
-		this.name = name;	}
+		this.name = name;
+	}
 
 	public Project() {
 		super();
@@ -60,5 +61,5 @@ public class Project {
 	public String toString() {
 		return "Project [id=" + id + ", name=" + name + "]";
 	}
-	
+
 }
